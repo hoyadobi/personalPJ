@@ -4,7 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JPG to PDF 변환</title>
-    <link href="css/style.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fb;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        #uploadForm {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input[type="file"], input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        button {
+            background-color: #00b300;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #007f00;
+        }
+
+        #progress {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 20px;
+            color: #00b300;
+        }
+
+        .error {
+            color: #e74c3c;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .success {
+            color: #2ecc71;
+            font-size: 18px;
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -16,10 +93,6 @@
     </form>
 
     <div id="progress">0%</div> <!-- 진행 상태 표시 -->
-    <!-- 메인 페이지로 돌아가는 버튼 -->
-    <a href="index.php">
-        <button class="back-button" type="button">메인으로 돌아가기</button>
-    </a>
 </div>
 
 <script>

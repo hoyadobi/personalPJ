@@ -1,14 +1,12 @@
 <?php
 // 세션 시작 및 JSON 헤더 설정
 session_start();
-header('Content-Type: application/json; charset=UTF-8');
-
+header('Content-Type: application/json');
 
 // 업로드 파일 처리
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES['images'])) {
     // 클라이언트로부터 받은 PDF 이름
-    $pdfName = isset($_POST['pdfName']) ? urldecode($_POST['pdfName']) : 'output';
-    $pdfName = preg_replace('/[\/:*?"<>|]/', '_', $pdfName); // 파일명 제한 문자 제거
+    $pdfName = isset($_POST['pdfName']) ? $_POST['pdfName'] : 'output'; // 기본값은 'output'
 
     // 업로드된 파일 정보 처리
     $totalFiles = count($_FILES['images']['tmp_name']);

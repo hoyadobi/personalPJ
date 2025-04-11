@@ -1,26 +1,10 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HEIC to JPG 변환</title>
-    <link href="css/style_h.css" rel="stylesheet">
-</head>
-<body>
-<div class="container">
-    <h2>HEIC to JPG 변환 및 ZIP 다운로드</h2>
-    <form action="" method="post" enctype="multipart/form-data">
-        <input type="file" name="heicFiles[]" accept=".heic" multiple required>
-        <button type="submit">변환 및 다운로드</button>
-    </form>
-    <!-- 메인 페이지로 돌아가는 버튼 -->
-    <a href="index.php">
-        <button class="back-button" type="button">메인으로 돌아가기</button>
-    </a>
-</div>
-</body>
-</html>
 <?php
+// 변환된 파일을 저장할 폴더
+$uploadDir = __DIR__ . '/uploads/';
+if (!is_dir($uploadDir)) {
+    mkdir($uploadDir, 0777, true);
+}
+
 // HEIC → JPG 변환 함수
 function convertHeicToJpg($heicFile, $jpgFile) {
     $imagick = new Imagick();
@@ -48,11 +32,6 @@ function convertHeicToJpg($heicFile, $jpgFile) {
 
 // 파일 업로드 처리
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['heicFiles'])) {
-    $uploadDir = __DIR__ . '/uploads/';
-    if (!is_dir($uploadDir)) {
-        mkdir($uploadDir, 0777, true);
-    }
-
     $jpgFiles = [];
     $zipFile = $uploadDir . 'converted_images.zip';
 
@@ -101,4 +80,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['heicFiles'])) {
 }
 ?>
 
-
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEIC to JPG 변환</title>
+</head>
+<body>
+<h2>HEIC to JPG 변환 및 ZIP 다운로드</h2>
+<form action="" method="post" enctype="multipart/form-data">
+    <input type="file" name="heicFiles[]" accept=".heic" multiple required>
+    <button type="submit">변환 및 다운로드</button>
+</form>
+</body>
+</html>
