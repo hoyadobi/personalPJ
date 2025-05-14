@@ -133,6 +133,9 @@
         <a href="heicToJpg.php">
             <button><i class="fas fa-images icon"></i> HEIC to JPG 변환</button>
         </a>
+        <a href="findPassword.php">
+            <button><i class="fas fa-images icon"></i> 한자 파일 비밀번호 조회</button>
+        </a>
     </div>
     <div class="footer">👩🏻‍💻 Developed by PEB</div>
 </div>

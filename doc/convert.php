@@ -1,5 +1,4 @@
 <?php
-// 세션 시작 및 JSON 헤더 설정
 session_start();
 header('Content-Type: application/json');
 

@@ -86,12 +86,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['heicFiles'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HEIC to JPG 변환</title>
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<h2>HEIC to JPG 변환 및 ZIP 다운로드</h2>
-<form action="" method="post" enctype="multipart/form-data">
-    <input type="file" name="heicFiles[]" accept=".heic" multiple required>
-    <button type="submit">변환 및 다운로드</button>
-</form>
+    <div class="container">
+        <h2>HEIC to JPG 변환 및 ZIP 다운로드</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+            <input type="file" name="heicFiles[]" accept=".heic" multiple required>
+            <button type="submit">변환 및 다운로드</button>
+        </form>
+        <div class="footer">
+            <p>파일을 선택하고 변환을 시작하세요!</p>
+        </div>
+        <a href="index.php">
+            <button class="back-button" type="button">메인으로 돌아가기</button>
+        </a>
+    </div>
 </body>
 </html>

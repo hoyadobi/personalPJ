@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JPG to PDF 변환</title>
+    <link href="css/style.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -81,6 +82,20 @@
             font-size: 18px;
             font-weight: 600;
         }
+        .back-button {
+            background-color: #4CAF50; /* 버튼 배경색 */
+            color: white; /* 버튼 글자색 */
+            padding: 8px 15px; /* 버튼 내부 여백 (상하, 좌우) */
+            font-size: 14px; /* 글자 크기 */
+            border: none; /* 테두리 제거 */
+            border-radius: 5px; /* 모서리 둥글게 */
+            cursor: pointer; /* 마우스 커서 모양 */
+            transition: background-color 0.3s; /* 배경색 전환 효과 */
+        }
+
+        .back-button:hover {
+            background-color: #45a049; /* 버튼에 마우스를 올렸을 때 배경색 변화 */
+        }
     </style>
 </head>
 <body>
@@ -93,6 +108,9 @@
     </form>
 
     <div id="progress">0%</div> <!-- 진행 상태 표시 -->
+    <a href="index.php">
+        <button class="back-button" type="button">메인으로 돌아가기</button>
+    </a>
 </div>
 
 <script>
